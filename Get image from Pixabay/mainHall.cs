@@ -23,17 +23,18 @@ namespace Get_image_from_Pixabay
         private void Form1_Load(object sender, EventArgs e)
         {
             //https://pixabay.com/api/?key=25829393-af32bf17ec8386b5941fb5f8f&q=yellow+flowers&image_type=photo
-            //25829393-af32bf17ec8386b5941fb5f8f
+           
 
 
         }
 
         private async void btGet_Click(object sender, EventArgs e)
         {
+            string yourAPI_Key = "Go to pixabay.com and get it for free";
             string rawContent;
             string imageUrl;
             HttpClient client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, @"https://pixabay.com/api/?key=25829393-af32bf17ec8386b5941fb5f8f&q="+word.Text+@"&image_type=photo");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, @"https://pixabay.com/api/?key="+ yourAPI_Key + @"&q="+word.Text+@"&image_type=photo");
             using (var responseMessage = await client.SendAsync(request))
             {
                 if (responseMessage.IsSuccessStatusCode)
